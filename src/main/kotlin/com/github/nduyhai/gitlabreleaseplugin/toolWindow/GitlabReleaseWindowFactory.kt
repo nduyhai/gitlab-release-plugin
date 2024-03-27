@@ -20,14 +20,14 @@ class GitlabReleaseWindowFactory : ToolWindowFactory {
     }
 
     override fun createToolWindowContent(project: Project, toolWindow: ToolWindow) {
-        val myToolWindow = MyToolWindow(toolWindow)
-        val content = ContentFactory.getInstance().createContent(myToolWindow.getContent(), null, false)
+        val gitlabReleaseWindow = GitlabReleaseWindow(toolWindow)
+        val content = ContentFactory.getInstance().createContent(gitlabReleaseWindow.getContent(), null, false)
         toolWindow.contentManager.addContent(content)
     }
 
     override fun shouldBeAvailable(project: Project) = true
 
-    class MyToolWindow(toolWindow: ToolWindow) {
+    class GitlabReleaseWindow(toolWindow: ToolWindow) {
 
         private val service = toolWindow.project.service<GitlabReleaseService>()
 
