@@ -6,13 +6,13 @@
 
     <depends>com.intellij.modules.platform</depends>
 
-    <resource-bundle>messages.MyBundle</resource-bundle>
+    <resource-bundle>messages.GitlabRelease</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.nduyhai.gitlabreleaseplugin.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <toolWindow factoryClass="com.github.nduyhai.gitlabreleaseplugin.toolWindow.GitlabReleaseWindowFactory" id="GitlabReleaseWindow"/>
     </extensions>
 
     <applicationListeners>
-        <listener class="com.github.nduyhai.gitlabreleaseplugin.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
+        <listener class="com.github.nduyhai.gitlabreleaseplugin.listeners.GitlabReleaseApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
     </applicationListeners>
 </idea-plugin>

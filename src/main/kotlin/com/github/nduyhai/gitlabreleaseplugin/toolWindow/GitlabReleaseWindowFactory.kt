@@ -8,12 +8,12 @@ import com.intellij.openapi.wm.ToolWindowFactory
 import com.intellij.ui.components.JBLabel
 import com.intellij.ui.components.JBPanel
 import com.intellij.ui.content.ContentFactory
-import com.github.nduyhai.gitlabreleaseplugin.MyBundle
-import com.github.nduyhai.gitlabreleaseplugin.services.MyProjectService
+import com.github.nduyhai.gitlabreleaseplugin.GitlabReleaseBundle
+import com.github.nduyhai.gitlabreleaseplugin.services.GitlabReleaseService
 import javax.swing.JButton
 
 
-class MyToolWindowFactory : ToolWindowFactory {
+class GitlabReleaseWindowFactory : ToolWindowFactory {
 
     init {
         thisLogger().warn("Don't forget to remove all non-needed sample code files with their corresponding registration entries in `plugin.xml`.")
@@ -29,15 +29,15 @@ class MyToolWindowFactory : ToolWindowFactory {
 
     class MyToolWindow(toolWindow: ToolWindow) {
 
-        private val service = toolWindow.project.service<MyProjectService>()
+        private val service = toolWindow.project.service<GitlabReleaseService>()
 
         fun getContent() = JBPanel<JBPanel<*>>().apply {
-            val label = JBLabel(MyBundle.message("randomLabel", "?"))
+            val label = JBLabel(GitlabReleaseBundle.message("randomLabel", "?"))
 
             add(label)
-            add(JButton(MyBundle.message("shuffle")).apply {
+            add(JButton(GitlabReleaseBundle.message("shuffle")).apply {
                 addActionListener {
-                    label.text = MyBundle.message("randomLabel", service.getRandomNumber())
+                    label.text = GitlabReleaseBundle.message("randomLabel", service.getRandomNumber())
                 }
             })
         }
